@@ -101,10 +101,64 @@ Identify customers who are likely to leave the bank using machine learning class
 ---
 
 ## Task 4: Predicting Insurance Claim Amounts
+**Size:** 1338 rows × 7 columns  
+
+| Column | Description |
+|--------|-------------|
+| age | Age of the person |
+| sex | Gender (male/female) |
+| bmi | Body Mass Index |
+| children | Number of children |
+| smoker | Smoker or not (yes/no) |
+| region | Residential area (northeast, southeast, etc.) |
+| charges | **Target:** Medical insurance charges in USD |
+
+### Approach
+1. **Data Loading:** Loaded dataset directly from GitHub URL
+2. **Encoding:**
+   - sex → male=1, female=0
+   - smoker → yes=1, no=0
+   - region → One-Hot Encoding using `get_dummies()`
+3. **EDA — 3 Visualizations:**
+   - BMI vs Charges (colored by smoker status)
+   - Age vs Charges (colored by smoker status)
+   - Smoker vs Charges box plot
+4. **Model:** Linear Regression
+5. **Evaluation:** MAE and RMSE
+6. **Actual vs Predicted:** Scatter plot
+
+### Results & Key Insights
+- **Smoking** is the strongest predictor of high charges
+- Smokers pay **3-4x more** than non-smokers
+- **Age** positively correlates with charges
+- **Higher BMI** leads to higher insurance costs
+- Linear Regression gives a solid baseline model
+
+### Evaluation Metrics
+| Metric | Description |
+|--------|-------------|
+| MAE (Mean Absolute Error) | Average prediction error in USD |
+| RMSE (Root Mean Squared Error) | Penalizes large errors more |
+
+### Visualizations
+| Chart | Description |
+|-------|-------------|
+| task4_bmi_charges.png | BMI vs Charges colored by smoker |
+| task4_age_charges.png | Age vs Charges colored by smoker |
+| task4_smoker_charges.png | Smoker vs Non-smoker charges |
+| task4_actual_vs_predicted.png | Model accuracy visualization |
+
+---
+
+## Common Libraries Used (All Tasks)
+```python
+pandas, matplotlib, seaborn, scikit-learn, numpy
 
 ### Objective
 Estimate medical insurance charges based on personal data using Linear Regression.
 
 ### Dataset
+pip install pandas matplotlib seaborn scikit-learn numpy
+This single document includes all three tasks, their objectives, datasets, approaches, results, and visualizations, plus common libraries and run instructions.
 **Name:** Medical Cost Personal Dataset  
 **Source:** Loaded directly from URL — no download required
